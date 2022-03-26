@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test1"></div>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/prop-types.js"></script>
+    <script src="../lib/babel.min.js"></script>
+    <script type="text/babel">
+      // 创建组件
+      function Person(props) {
+        const { name, sex, age } = props
+        return (
+          <ul>
+            <li>姓名：{name}</li>
+            <li>性别：{sex}</li>
+            <li>年龄：{age}</li>
+          </ul>
+        )
+      }
+      Person.propTypes = {
+        name: PropTypes.string.isRequired,
+        age: PropTypes.number,
+      }
+      Person.defaultProps = {
+        sex: "男",
+        age: 18,
+      }
+      // 渲染组件到页面
+      ReactDOM.render(<Person name="tom" />, document.getElementById("test1"))
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/babel-core/5.8.8/browser.js"></script>
+    <script type="text/babel">
+      /*
+        一定注意区别：JS语句（代码） 和 JS表达式
+          1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方
+            下面都是表达式：
+              (1) a
+              (2) a+b
+              (3) func(a)
+              (4) a.map()
+              (5) function(){}
+          2.语句：
+            下面都是语句：
+              (1) if
+              (2) for
+              (3) switch
+      */
+      // 模拟一些数据
+      const temp = ["Angular", "React", "Vue"]
+      const VDOM = (
+        <div>
+          <h1>前端JS框架列表</h1>
+          <ul>
+            {temp.map((v, index) => {
+              return <li key={index}>{v}</li>
+            })}
+          </ul>
+        </div>
+      )
+      ReactDOM.render(VDOM, document.getElementById("test"))
+    </script>
+  </body>
+</html>

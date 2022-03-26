@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script src="../lib/react.development.js"></script>
+    <script src="../lib/react-dom.development.js"></script>
+    <script src="../lib/prop-types.js"></script>
+    <script src="../lib/babel.min.js"></script>
+    <script type="text/babel">
+      // 创建组件
+      class Demo extends React.Component {
+        demoClick = () => {
+          console.log(this.myRef)
+          alert(this.refs.input1.value)
+        }
+        demoBlur = () => {
+          alert(this.input2.value)
+        }
+        /*
+          React.createRef调用后可以返回一容器，该容器可以存储被ref标识的节点，该容器只能存储一个节点
+        */
+        myRef = React.createRef()
+        render() {
+          return (
+            <div>
+              {/*字符串形式指定ref*/}
+              <input ref="input1" type="text" />
+              &nbsp;
+              {/*使用React.createRef API*/}
+              <button ref={this.myRef} onClick={this.demoClick}>
+                点击
+              </button>
+              &nbsp;
+              {/*回调函数形式指定ref*/}
+              <input ref={(e) => (this.input2 = e)} type="text" onBlur={this.demoBlur} />
+            </div>
+          )
+        }
+      }
+      // 渲染组件到页面
+      ReactDOM.render(<Demo />, document.getElementById("test"))
+    </script>
+  </body>
+</html>

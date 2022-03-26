@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <!-- jsx写法 -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/babel-core/5.8.8/browser.js"></script>
+    <script type="text/babel">
+      const VDOM = <h1 id="title">Hello, world!</h1>;
+      ReactDOM.render(VDOM, document.getElementById("test"));
+    </script> -->
+    <!-- js写法 -->
+    <script>
+      const VDOM = React.createElement("h1", { id: "title" }, "Hello, world!");
+      ReactDOM.render(VDOM, document.getElementById("test"));
+    </script>
+
+    <!-- 
+        JSX：JavaScript XML
+        是React定义的一种类似XML的JS扩展语法
+        本质是React.createElement(component,props,...children)方法的语法糖
+        用于简化创建虚拟DOM
+     -->
+  </body>
+</html>
